@@ -1,0 +1,86 @@
+:root {
+/* 	Responsive Sizing */
+	--size: 25vmin;
+}
+/* General Layout */
+body {
+	font-family: sans-serif;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background-color: #efe;
+}
+.container {
+	margin-bottom: 5%;
+	background-color: #fff;
+/* 	For card dimensions of 85.5 x 55, ratio =  1.556 x 1  */
+	width: calc(1.565 * var(--size));
+	min-width: 300px;
+	height: calc(1 * var(--size));
+	min-height: 200px;
+	display: flex;
+	box-sizing: border-box;
+	border: 1px solid grey;
+}
+.front {
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #071c33;
+	background-image: url('https://nigerialogos.com/logos/paystack/paystack.svg');
+	background-size: 10%;
+	background-position: 49% 30%;
+	background-repeat: no-repeat;
+	color: #fff;
+	font-weight: bolder;
+	font-size: 200%;
+}
+.front p {
+	margin-top: 65px;
+}
+.back {
+	align-items: flex-end;
+	font-size: 70%;
+	padding: 10%;
+}
+.button {
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #fff;
+	background-color: rgb(50,150,100);
+	padding: 1rem 2rem;
+	border-radius: 5px;
+	margin-top: 2%;
+
+}
+
+/* Print Styles */
+@media print {
+/* 	Hide everything that doesn't have the '.print' class */
+	body > *:not(.print){
+		display: none;
+	}
+	.front {
+/* 		Force the browser to print with the given colors instead of overwriting to black&white */
+		color-adjust: exact;
+		-webkit-print-color-adjust: exact;
+		background-color: #071c33;
+		color: #fff;
+	}
+	
+/* 	Give the cards fixed dimensions  */
+	.container {
+		width: 85.5mm;
+		height: 55mm;
+	}
+	
+/* 	Remove the header and footer text and urls the browser places  */
+	@page {
+		margin: 0;
+	}
+	
+}
+
+
+

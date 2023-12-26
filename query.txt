@@ -1,0 +1,5 @@
+update bus_data set departureTime=
+'2019-08-02' where departureTime = '2019-07-31'
+
+update bus_data,seat_data set unavailable = 0 where unavailable = 1
+and bus_data.bid = seat_data.bid and departureTime = '2019-07-31'
